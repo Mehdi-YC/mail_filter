@@ -8,17 +8,13 @@ cur = conn.cursor()
 
 
 
-def change_type(cur,mail,type):
-    cur.execute(f'alter mail set type="{type}" where mail="{mail}"')
-    cur.commit()
-
 
 def get(cur,type):
     cur.execute(f'select mail from mails where type="{type}" ')
     data = cur.fetchall()
     return data
 
-    
+
 def add(cur,name,domain,mail,type):
     cur.execute(f'insert into mails(mail,name,domain,type) values("{mail}","{name}","{domain}","{type}");')
 
